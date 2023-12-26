@@ -59,7 +59,7 @@ void main() {
     float maxAlpha = 0.5; // 最大透明度
     float minDistance = 0.2; // 鼠标移动的最小距离
     float distance = length(u_mouse - st);
-    float alpha = max(maxAlpha - distance * minDistance, 0.0);
+    float alpha = max(maxAlpha - distance * minDistance, 0.8);
 
     gl_FragColor = mix(vec4(1.0 - color, 1.0), texture2D(u_texture, st), alpha);
 }
