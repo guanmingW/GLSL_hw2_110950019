@@ -55,11 +55,7 @@ void main() {
     color.g += 0.5 * cos(t2 + st.y + cos(freq2));
     color.b += 0.5 * sin(t2 + st.x + st.y);
 
-    // 根据鼠标位置调整透明度
-    float maxAlpha = 0.5; // 最大透明度
-    float minDistance = 0.2; // 鼠标移动的最小距离
-    float distance = length(u_mouse - st);
-    float alpha = max(maxAlpha - distance * minDistance, 0.8);
-
+    // 使用混合模式来控制背景图像的透明度
+    float alpha = 0.5; // 背景图像的透明度
     gl_FragColor = mix(vec4(1.0 - color, 1.0), texture2D(u_texture, st), alpha);
 }
